@@ -1,9 +1,9 @@
 interface Props {
   searches: string[];
-  handlePreviousSearchClick: (term: string) => void;
+  onPreviousSearchClicked: (term: string) => void;
 }
 
-export const PreviousSearches = ({ searches, handlePreviousSearchClick }: Props) => {
+export const PreviousSearches = ({ searches, onPreviousSearchClicked }: Props) => {
   return (
     <section className="previous-searches">
       <h2>Busquedas previas</h2>
@@ -13,7 +13,7 @@ export const PreviousSearches = ({ searches, handlePreviousSearchClick }: Props)
           searches.map(search => (
             <li
               key={search}
-              onClick={() => handlePreviousSearchClick(search)}
+              onClick={() => onPreviousSearchClicked(search)}
             >
               {search}
             </li>

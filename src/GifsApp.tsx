@@ -10,7 +10,7 @@ import { GifList } from "./gifs/components/GifList";
 export const GifsApp = () => {
   const [previousSearches, setPreviousSearches] = useState(['Dofus retro'])
 
-  const handlePreviousSearchClick = (term: string) => {
+  const handlePreviousSearchClicked = (term: string) => {
     console.log({ term });
   };
 
@@ -25,7 +25,7 @@ export const GifsApp = () => {
 
       <PreviousSearches
         searches={previousSearches}
-        handlePreviousSearchClick={handlePreviousSearchClick}
+        onPreviousSearchClicked={handlePreviousSearchClicked}
       />
 
       <GifList gifs={mockGifs} />
