@@ -14,6 +14,17 @@ export const GifsApp = () => {
     console.log({ term });
   };
 
+  const handleSearch = (query: string) => {
+    const querySanitized = query.trim().toLowerCase();
+
+    if (!querySanitized.length) return;
+
+    if (previousSearches.includes(querySanitized)) return;
+
+    const newPreviousSearches = [querySanitized, ...previousSearches].splice(0, 6);
+    setPreviousSearches(newPreviousSearches);
+  }
+
   return (
     <>
       <CustomHeader
@@ -21,7 +32,10 @@ export const GifsApp = () => {
         description="Descubre y comparte el GIF perfecto"
       />
 
-      <SearchBar placeholder="Buscar GIF" />
+      <SearchBar
+        placeholder="Buscar GIF"
+        onSearch={handleSearch}
+      />
 
       <PreviousSearches
         searches={previousSearches}
