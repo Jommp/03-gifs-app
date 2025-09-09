@@ -5,10 +5,10 @@ interface Props {
 
 export const PreviousSearches = ({ searches, onPreviousSearchClicked }: Props) => {
   return (
-    <section className="previous-searches">
+    <section className='previous-searches'>
       <h2>Busquedas previas</h2>
 
-      <ul className="previous-searches-list">
+      <ul className='previous-searches-list'>
         {
           searches.map(search => (
             <li
