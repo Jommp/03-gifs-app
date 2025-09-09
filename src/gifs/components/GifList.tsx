@@ -1,0 +1,27 @@
+import type { Gif } from "../../mock-data/gifs.mock";
+
+interface Props {
+  gifs: Gif[];
+};
+
+export const GifList = ({ gifs }: Props) => {
+  return (
+    <section className="gifs-container">
+      {
+        gifs.map((gif) => (
+          <article className="gif-card">
+            <img src={gif.url} alt={gif.title} />
+
+            <h3>
+              { gif.title }
+            </h3>
+
+            <p>
+              { `${gif.width}X${gif.height} (1.5MB)` }
+            </p>
+          </article>
+        ))
+      }
+    </section>
+  );
+};
