@@ -1,45 +1,29 @@
 import { mockGifs } from "./mock-data/gifs.mock";
 
+import { CustomHeader } from "./shared/components/CustomHeader";
+import { SearchBar } from "./shared/components/SearchBar";
+import { PreviousSearches } from "./gifs/components/PreviousSearches";
+import { GifList } from "./gifs/components/GifList";
+
+const previousSearches = [
+  'Dofus retro',
+  'Gears of war 3',
+  'League of Legends'
+];
+
 export const GifsApp = () => {
   return (
     <>
-      <header className="content-center">
-        <h1>Buscador de Gifs</h1>
-        <p>Descubre y comparte el gif perfecto</p>
-      </header>
+      <CustomHeader
+        title="Buscador de GIFS"
+        description="Descubre y comparte el GIF perfecto"
+      />
 
-      <section className="search-container">
-        <input type="text" placeholder="Buscar Gifs" />
-        <button>Buscar</button>
-      </section>
+      <SearchBar placeholder="Buscar GIF" />
 
-      <section className="previous-searches">
-        <h2>Busquedas previas</h2>
+      <PreviousSearches searches={previousSearches} />
 
-        <ul className="previous-searches-list">
-          <li>Dofus retro</li>
-          <li>Gears of war 3</li>
-          <li>League of Legends</li>
-        </ul>
-      </section>
-
-      <section className="gifs-container">
-        {
-          mockGifs.map((gif) => (
-            <article className="gif-card">
-              <img src={gif.url} alt={gif.title} />
-
-              <h3>
-                { gif.title }
-              </h3>
-
-              <p>
-                { `${gif.width}X${gif.height} (1.5MB)` }
-              </p>
-            </article>
-          ))
-        }
-      </section>
+      <GifList gifs={mockGifs} />
     </>
   );
 };
