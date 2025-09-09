@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { mockGifs } from "./mock-data/gifs.mock";
 
 import { CustomHeader } from "./shared/components/CustomHeader";
@@ -5,13 +7,9 @@ import { SearchBar } from "./shared/components/SearchBar";
 import { PreviousSearches } from "./gifs/components/PreviousSearches";
 import { GifList } from "./gifs/components/GifList";
 
-const previousSearches = [
-  'Dofus retro',
-  'Gears of war 3',
-  'League of Legends'
-];
-
 export const GifsApp = () => {
+  const [previousSearches, setPreviousSearches] = useState(['Dofus retro'])
+
   return (
     <>
       <CustomHeader
