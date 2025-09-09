@@ -10,6 +10,10 @@ import { GifList } from "./gifs/components/GifList";
 export const GifsApp = () => {
   const [previousSearches, setPreviousSearches] = useState(['Dofus retro'])
 
+  const handlePreviousSearchClick = (term: string) => {
+    console.log({ term });
+  };
+
   return (
     <>
       <CustomHeader
@@ -19,7 +23,10 @@ export const GifsApp = () => {
 
       <SearchBar placeholder="Buscar GIF" />
 
-      <PreviousSearches searches={previousSearches} />
+      <PreviousSearches
+        searches={previousSearches}
+        handlePreviousSearchClick={handlePreviousSearchClick}
+      />
 
       <GifList gifs={mockGifs} />
     </>
