@@ -5,7 +5,7 @@ interface Props {
 
 export const CustomHeader = ({ title, description }: Props) => {
   return (
-    <header className="content-center">
+    <header className='content-center'>
       <h1>{ title }</h1>
 
       {
