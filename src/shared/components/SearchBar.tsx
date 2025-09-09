@@ -1,4 +1,4 @@
-import { useEffect, useState, type KeyboardEvent } from "react";
+import { useEffect, useState, type KeyboardEvent } from 'react';
 
 interface Props {
   placeholder: string;
@@ -30,9 +30,9 @@ export const SearchBar = ({ placeholder, button = 'Buscar', onSearch }: Props) =
   };
 
   return (
-    <section className="search-container">
+    <section className='search-container'>
       <input
-        type="text"
+        type='text'
         placeholder={ placeholder }
         onChange={(ev) => setQuery(ev.target.value)}
         onKeyDown={handleKeyDown}
