@@ -3,10 +3,10 @@ import { useEffect, useState, type KeyboardEvent } from "react";
 interface Props {
   placeholder: string;
   button?: string;
-  onQuery: (query: string) => void;
+  onSearch: (query: string) => void;
 };
 
-export const SearchBar = ({ placeholder, button = 'Buscar', onQuery }: Props) => {
+export const SearchBar = ({ placeholder, button = 'Buscar', onSearch }: Props) => {
   const [query, setQuery] = useState('');
 
   useEffect(() => {
@@ -17,10 +17,10 @@ export const SearchBar = ({ placeholder, button = 'Buscar', onQuery }: Props) =>
     return () => {
       clearInterval(timeOutId);
     }
-  }, [query, onQuery]);
+  }, [query, onSearch]);
   
   const handleSearch = () => {
-    onQuery(query);
+    onSearch(query);
   };
 
   const handleKeyDown = (key: KeyboardEvent<HTMLInputElement>) => {
