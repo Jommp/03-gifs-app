@@ -9,7 +9,7 @@ export const GifList = ({ gifs }: Props) => {
     <section className="gifs-container">
       {
         gifs.map((gif) => (
-          <article className="gif-card">
+          <article className="gif-card" key={gif.id}>
             <img src={gif.url} alt={gif.title} />
 
             <h3>
