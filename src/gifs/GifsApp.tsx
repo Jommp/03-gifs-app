@@ -1,40 +1,18 @@
-import { useState } from 'react';
+import { useGifs } from './hooks/useGifs';
 
-import type { Gif } from './gifs/interfaces/gif.interface';
+import { CustomHeader } from '../shared/components/CustomHeader';
+import { SearchBar } from '../shared/components/SearchBar';
 
-import { getGifsByQuery } from './gifs/actions/get-gifs-by-query.action';
-
-import { CustomHeader } from './shared/components/CustomHeader';
-import { SearchBar } from './shared/components/SearchBar';
-import { PreviousSearches } from './gifs/components/PreviousSearches';
-import { GifList } from './gifs/components/GifList';
+import { PreviousSearches } from './components/PreviousSearches';
+import { GifList } from './components/GifList';
 
 export const GifsApp = () => {
-  const [gifs, setGifs] = useState<Gif[]>([]);
-  const [previousSearches, setPreviousSearches] = useState<string[]>([]);
-
-  const handlePreviousSearchClicked = (term: string) => {
-    console.log({ term });
-  };
-
-  const handleGetGifsByQuery = async (query: string = '') => {
-    const results = await getGifsByQuery(query);
-
-    setGifs(results);
-  };
-
-  const handleSearch = (query: string) => {
-    const querySanitized = query.trim().toLowerCase();
-
-    if (!querySanitized.length) return;
-
-    if (previousSearches.includes(querySanitized)) return;
-
-    const newPreviousSearches = [querySanitized, ...previousSearches].splice(0, 6);
-    setPreviousSearches(newPreviousSearches);
-
-    handleGetGifsByQuery(query);
-  };
+  const {
+    gifs,
+    previousSearches,
+    handleSearch,
+    handlePreviousSearchClicked
+  } = useGifs();
 
   return (
     <>
