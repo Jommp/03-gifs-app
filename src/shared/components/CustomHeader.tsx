@@ -9,7 +9,7 @@ export const CustomHeader = ({ title, description }: Props) => {
       <h1>{ title }</h1>
 
       {
-        title && <p>{ description }</p>
+        description && <p>{ description }</p>
       }
     </header>
   )
