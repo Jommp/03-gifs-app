@@ -18,17 +18,17 @@ export const useGifs = () => {
     gifsCache.current[query] = results;
   };
 
-  const handlePreviousSearchClicked = (term: string) => {
+  const handlePreviousSearchClicked = async (term: string) => {
     if(gifsCache.current[term]) {
       setGifs(gifsCache.current[term]);
 
       return;
     };
 
-    handleGetGifsByQuery(term);
+    await handleGetGifsByQuery(term);
   };
 
-  const handleSearch = (query: string) => {
+  const handleSearch = async (query: string) => {
     const querySanitized = query.trim().toLowerCase();
 
     if (!querySanitized.length) return;
@@ -38,7 +38,7 @@ export const useGifs = () => {
     const newPreviousSearches = [querySanitized, ...previousSearches].splice(0, 6);
     setPreviousSearches(newPreviousSearches);
 
-    handleGetGifsByQuery(query);
+    await handleGetGifsByQuery(query);
   };
 
   return {
