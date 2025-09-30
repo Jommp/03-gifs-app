@@ -16,8 +16,6 @@ describe('GetGifsByQueryAction', () => {
   //   const gifs = await getGifsByQuery('Dofus retro');
   //   const [firstGif] = gifs;
 
-  //   console.log(gifs);
-
   //   expect(firstGif).toStrictEqual({
   //     id: expect.any(String),
   //     height: expect.any(Number),

@@ -69,8 +69,6 @@ describe('useGifs', () => {
     await act(async () => {await result.current.handleSearch('dofus-7')});
     await act(async () => {await result.current.handleSearch('dofus-8')});
 
-    console.log(result.current.previousSearches);
-
     expect(result.current.previousSearches).toStrictEqual([
       'dofus-8',
       'dofus-7',
