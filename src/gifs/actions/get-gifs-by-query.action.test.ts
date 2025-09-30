@@ -1,10 +1,9 @@
-import { giphySearchResponseMock } from './../../../tests/mocks/giphy.responses.data';
-import { beforeEach, describe, expect, test, vi } from 'vitest';
-import { getGifsByQuery } from './get-gifs-by-query.action';
-
 import AxiosMockAdapter from 'axios-mock-adapter';
-import { giphyApi } from '../api/giphy.api';
+import { beforeEach, describe, expect, test, vi } from 'vitest';
 
+import { giphySearchResponseMock } from './../../../tests/mocks/giphy.responses.data';
+import { giphyApi } from '../api/giphy.api';
+import { getGifsByQuery } from './get-gifs-by-query.action';
 
 describe('GetGifsByQueryAction', () => {
   let axiosMock = new AxiosMockAdapter(giphyApi);

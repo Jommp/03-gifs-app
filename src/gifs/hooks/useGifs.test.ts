@@ -1,5 +1,6 @@
 import { act, renderHook } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
+
 import { useGifs } from './useGifs';
 
 describe('useGifs', () => {
